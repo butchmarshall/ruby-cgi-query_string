@@ -1,8 +1,12 @@
 # CGI::QueryString
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cgi/query_string`. To experiment with that code, run `bin/console` for an interactive prompt.
+Helper methods for dealing with query strings in ruby.
 
-TODO: Delete this and the text above, and describe your gem
+Basically trying to replicate ActiveSupports [to_query ](http://guides.rubyonrails.org/v3.2.21/active_support_core_extensions.html#to_query) method without having to include all of ActiveSupport.
+
+Hopefully someone finds this useful.
+
+TODO: add a deparam method
 
 ## Installation
 
@@ -22,17 +26,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'cgi/query_string'
 
-## Development
+CGI::QueryString.param({
+	:a => 1,
+	:b => {
+		:c => [1,2,3]
+	},
+	:d => [4,5,6]
+})
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+== "a=1&b%5Bc%5D%5B%5D=1&b%5Bc%5D%5B%5D=2&b%5Bc%5D%5B%5D=3&d%5B%5D=4&d%5B%5D=5&d%5B%5D=6"
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/cgi-query_string.
+Bug reports and pull requests are welcome on GitHub at https://github.com/butchmarshall/ruby-cgi-query_string.
 
 
 ## License
