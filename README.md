@@ -1,3 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/cgi-query_string.svg)](http://badge.fury.io/rb/cgi-query_string)
+[![Build Status](https://travis-ci.org/butchmarshall/ruby-cgi-query_string.svg?branch=master)](https://travis-ci.org/butchmarshall/ruby-cgi-query_string)
+
 # CGI::QueryString
 
 Helper methods for dealing with query strings in ruby.
